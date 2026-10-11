@@ -1,0 +1,23 @@
+#gameDialog{position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;overflow:hidden;background:#edf4ef;color:var(--ink)}
+#gameDialog::backdrop{background:#edf4ef}
+body:has(#gameDialog[open]){overflow:hidden;overscroll-behavior:none}
+.game-playfield{position:absolute;inset:0 0 calc(46px + env(safe-area-inset-bottom));overflow:hidden;background:#edf4ef}
+#gameCanvas{display:block;width:100%;height:100%;touch-action:none;user-select:none;cursor:pointer;outline:none}
+#gameCanvas:active{cursor:pointer}
+.game-score{position:absolute;top:calc(14px + env(safe-area-inset-top));left:18px;right:18px;display:flex;justify-content:space-between;gap:15px;pointer-events:none;font-size:13px;color:#244f65;text-shadow:0 1px 3px #fff}
+.game-score strong{font-size:22px;margin-left:5px}
+.game-boost{position:absolute;top:calc(51px + env(safe-area-inset-top));left:18px;right:18px;height:4px;background:#d3e0db66;pointer-events:none;border-radius:4px;overflow:hidden}
+.game-boost span{display:block;height:100%;width:0;background:#569db4}
+.game-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:25px;background:#eaf2ecbb;backdrop-filter:blur(4px)}
+.game-overlay img{width:170px;max-height:135px;object-fit:contain}
+.game-overlay h2{font-size:clamp(36px,5vw,66px);margin:0}
+.game-overlay p{font-size:17px;line-height:1.5;max-width:365px;margin:0 0 12px}
+.game-overlay .paint-button{width:290px;min-height:76px;font-size:18px}
+.game-tip{font-size:12px;color:#527476;margin-top:6px}
+.game-announcement{position:absolute;bottom:55px;left:12px;right:12px;margin:0;text-align:center;pointer-events:none;font-size:12px;color:#315a63;text-shadow:0 1px 3px white}
+.game-exit{position:absolute;bottom:0;left:0;width:100%;height:calc(46px + env(safe-area-inset-bottom));padding:8px 15px calc(8px + env(safe-area-inset-bottom));background:#edf2ef;color:#244f65;font-size:15px;border-top:1px solid #a6b9ad55;letter-spacing:.6px;touch-action:manipulation}
+.game-exit:hover{background:#dbe7df}
+@media(max-height:480px){.game-overlay{gap:7px}.game-overlay img{width:100px;max-height:75px}.game-overlay h2{font-size:32px}.game-overlay p{font-size:14px;margin:0}.game-overlay .paint-button{min-height:57px;padding:12px 22px}.game-tip{margin:0}}
+
+@media(max-width:480px){.game-score{font-size:11px;gap:8px;left:12px;right:12px}.game-score strong{font-size:18px;margin-left:3px}}
+

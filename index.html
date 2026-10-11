@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Un viaje con sabor · Proyecto AGRODIG</title>
+  <meta name="description" content="Un recorrido en acuarela por la fórmula iniciadora para lechones con sucralosa, sus estudios científicos y la propuesta de exportación a Guatemala.">
+  <meta name="theme-color" content="#244f65">
+  <link rel="icon" href="assets/cerdito-sentado.png"><link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="game.css"><script defer src="app.js"></script><script defer src="game.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Ir al contenido</a>
+<div class="paper" aria-hidden="true"></div>
+<img class="corner corner-mx" src="assets/esquina-mexico.png" alt="" aria-hidden="true">
+<img class="corner corner-gt" src="assets/esquina-guatemala.png" alt="" aria-hidden="true">
+<header class="topbar">
+  <button class="home-link" id="homeBtn" aria-label="Volver a la pantalla de inicio"><span class="hand-arrow">←</span> Inicio</button>
+  <span class="top-caption">Una idea que cruza fronteras</span>
+  <button id="soundBtn" class="sound-control" aria-pressed="true">Sonido: activado</button>
+</header>
+<main id="main" tabindex="-1">
+  <section id="welcome" class="welcome" aria-labelledby="welcomeTitle">
+    <div class="welcome-copy">
+      <p class="eyebrow">PROYECTO AGRODIG · MISANTLA → GUATEMALA</p>
+      <h1 id="welcomeTitle">Un viaje<br>con <em>sabor.</em></h1>
+      <p class="welcome-question">¿Quieres saber sobre el producto<br class="desktop-br"> o quieres jugar una dinámica?</p>
+      <div class="choices">
+        <button class="paint-button blue" id="exploreBtn"><span>Conocer el producto</span><span class="button-arrow" aria-hidden="true">→</span></button>
+        <button class="paint-button green" id="gameBtn"><span>Jugar una dinámica</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+      </div>
+      <p class="small-note">Explora el proyecto o acompaña al cerdito en el potrero.</p>
+      <div class="author"><span class="author-line"></span><p>Ángel de Jesús García Iñiguez<br><span>Un proyecto de comercio exterior, contado de otra forma.</span></p></div>
+    </div>
+    <div class="welcome-art">
+      <div class="country-line"><img src="assets/bandera-mexico.png" alt="México"><span class="dotted-flight" aria-hidden="true">···················→</span><img src="assets/bandera-guatemala.png" alt="Guatemala"></div>
+      <span class="welcome-note">Una fórmula.<br>Una idea con respaldo.<br>Un nuevo destino.</span>
+      <button class="pig-button hero-pig" aria-label="Saludar al cerdito y escuchar su oinc"><img src="assets/cerdito-guia.png" alt="Cerdito ilustrado en acuarela sobre paja"></button>
+      <p class="pig-hint">Psst… toca al cerdito.</p>
+      <img class="welcome-reader" src="assets/cerdito-estudios.png" alt="" aria-hidden="true">
+    </div>
+  </section>
+
+  <div id="journey" hidden>
+    <nav class="chapter-nav" aria-label="Capítulos del recorrido"><div id="chapterButtons"></div><div class="progress-line"><span id="progressFill"></span></div></nav>
+    <div class="chapter-stage" id="chapterStage">
+      <section class="chapter" id="chapter-0" data-title="Origen" aria-labelledby="title-0">
+        <div class="chapter-copy"><p class="eyebrow">01 / UNA HISTORIA QUE EMPIEZA CERCA</p><h2 id="title-0" tabindex="-1">De Misantla,<br><em>con propósito.</em></h2>
+          <p class="lead">AGRODIG es una pequeña empresa veracruzana que elabora y comercializa alimento para animales.</p>
+          <p>Con tres años de funcionamiento, une producción, atención en tienda y reparto. Este proyecto toma uno de sus productos: el alimento iniciador para lechones, y propone darle un atributo sensorial para explorar el mercado guatemalteco.</p>
+          <div class="ink-facts"><div><strong>3 años</strong><span>de funcionamiento</span></div><div><strong>Misantla</strong><span>Veracruz, México</span></div><div><strong>Un producto</strong><span>fórmula para lechones</span></div></div>
+          <p class="margin-note">El objetivo: integrar producto, evidencia científica, mercado y comercio exterior en una misma propuesta.</p>
+        </div><div class="chapter-visual origin-art"><img src="assets/empresa.png" alt="Pequeña instalación rural de elaboración de alimento con lechones"><div class="art-caption">Una empresa pequeña.<br>Una oportunidad específica.</div></div>
+      </section>
+
+      <section class="chapter" id="chapter-1" data-title="Producto" hidden aria-labelledby="title-1">
+        <div class="chapter-copy"><p class="eyebrow">02 / ¿QUÉ HAY EN EL SACO?</p><h2 id="title-1" tabindex="-1">Un alimento listo<br><em>para empezar.</em></h2>
+          <p class="lead">La fórmula es un alimento iniciador terminado: una mezcla lista para suministrarse según su ficha técnica.</p>
+          <p>Combina fuentes de energía, proteína y micronutrientes para la etapa inicial del lechón y su transición al alimento sólido. Se presenta en harina, en sacos de <strong>40 kg</strong>.</p>
+          <div class="ingredient-switch" role="tablist" aria-label="Funciones de los ingredientes"><button role="tab" aria-selected="true" data-ingredient="energia">Energía</button><button role="tab" aria-selected="false" data-ingredient="proteina" tabindex="-1">Proteína</button><button role="tab" aria-selected="false" data-ingredient="nucleo" tabindex="-1">Núcleo</button></div>
+          <div class="ingredient-explainer" id="ingredientPanel" role="tabpanel">El maíz amarillo y el aceite de soya aportan fuentes de energía a la mezcla.</div>
+          <div class="dose-note"><strong>150 mg/kg</strong><span>de sucralosa activa: equivalen a 150 g por tonelada.<br>Se ajusta el maíz para conservar la masa total del lote.</span></div>
+        </div><div class="chapter-visual product-art"><div class="product-wrap"><img src="assets/producto.png" alt="Saco propuesto de alimento en harina y lechón comiendo"><div class="bag-label"><strong>AGRODIG</strong><span>FÓRMULA PARA LECHONES</span><span>ALIMENTO INICIADOR</span><span>CON SUCRALOSA</span></div><strong class="bag-weight">40 kg</strong></div><p class="art-footnote">Ilustración de la presentación propuesta.</p><img class="ingredient-art" src="assets/ingredientes.png" alt="Maíz, pasta de soya, aceite de soya y núcleo iniciador"></div>
+      </section>
+
+      <section class="chapter" id="chapter-2" data-title="Sucralosa" hidden aria-labelledby="title-2">
+        <div class="chapter-copy"><p class="eyebrow">03 / EL SABOR TAMBIÉN CUENTA</p><h2 id="title-2" tabindex="-1">Un poquito de dulzor.<br><em>Una idea sensorial.</em></h2>
+          <p class="lead">La sucralosa es un edulcorante de alta intensidad: produce sabor dulce con cantidades muy pequeñas.</p>
+          <p>No se incorpora como fuente de energía. Su papel en la propuesta es sensorial: los lechones perciben el sabor dulce, y un alimento atractivo puede favorecer su palatabilidad, aceptación y consumo voluntario.</p>
+          <p>La <strong>palatabilidad</strong> es qué tan aceptable resulta un alimento por sus características sensoriales. Es especialmente relevante cuando el lechón pasa de la leche al alimento sólido.</p>
+          <p class="margin-note">La nutrición la aporta la mezcla. La sucralosa suma un atributo de sabor.</p>
+        </div><div class="chapter-visual sensory-art"><button class="pig-button sensory-pig" aria-label="Saludar al cerdito curioso"><img src="assets/cerdito-curioso.png" alt="Cerdito curioso en acuarela"></button>
+          <div class="sensory-path" aria-label="Lógica sensorial de la propuesta"><button class="sensory-step selected" data-sensory="0">Sucralosa</button><img src="assets/flecha.png" alt="hacia"><button class="sensory-step" data-sensory="1">Sabor dulce</button><img src="assets/flecha.png" alt="hacia"><button class="sensory-step" data-sensory="2">Alimento atractivo</button></div>
+          <div class="sensory-result" id="sensoryResult" aria-live="polite">Se incorpora en una dosis pequeña: 150 mg de sustancia activa por kilogramo de alimento.</div>
+          <p class="art-footnote">Toca cada paso para seguir la idea.</p>
+        </div>
+      </section>
+
+      <section class="chapter scientific-chapter" id="chapter-3" data-title="Estudios" hidden aria-labelledby="title-3">
+        <div class="science-intro"><div><p class="eyebrow">04 / DULZOR CON RESPALDO CIENTÍFICO</p><h2 id="title-3" tabindex="-1">La idea tiene<br><em>mucho que contar.</em></h2></div><div class="science-overview"><p class="lead">Cinco publicaciones conectan percepción del sabor, preferencia y alimentación de lechones.</p><p>El proyecto reúne <strong>dos trabajos experimentales de alimentación</strong>, <strong>una investigación del receptor porcino</strong> y <strong>dos revisiones</strong>. Cada uno responde una pregunta diferente.</p></div></div>
+        <div class="research-desk"><nav class="paper-tabs" role="tablist" aria-label="Publicaciones científicas"><button role="tab" aria-selected="true" data-paper="zhang">Zhang <span>2020 · Alimentación</span></button><button role="tab" aria-selected="false" data-paper="daly" tabindex="-1">Daly <span>2021 · Receptor</span></button><button role="tab" aria-selected="false" data-paper="review" tabindex="-1">Jansen &amp; Kim <span>2024 · Revisión</span></button><button role="tab" aria-selected="false" data-paper="specht" tabindex="-1">Specht <span>2026 · Revisión</span></button><button role="tab" aria-selected="false" data-paper="jansen" tabindex="-1">Jansen <span>2026 · Alimentación</span></button><img src="assets/cerdito-estudios.png" alt="Cerdito mirando un libro" class="paper-pig"></nav>
+          <article class="study-sheet" id="studyPanel" role="tabpanel" aria-live="polite"></article>
+        </div>
+        <div class="research-takeaway"><strong>Lo que conecta la evidencia</strong><p>El sabor dulce tiene una base biológica en el cerdo y los ensayos aportan resultados de preferencia y consumo. Por eso, la propuesta incorpora la sucralosa como atributo sensorial de un alimento iniciador.</p><span>Las cifras de esta sección pertenecen a los estudios publicados.</span></div>
+      </section>
+
+      <section class="chapter" id="chapter-4" data-title="Guatemala" hidden aria-labelledby="title-4">
+        <div class="chapter-copy"><p class="eyebrow">05 / UN DESTINO CON SENTIDO</p><h2 id="title-4" tabindex="-1">¿Por qué<br><em>Guatemala?</em></h2><p class="lead">La oportunidad está en atender un segmento concreto, dentro de un mercado que ya compra alimento animal.</p><p>La actividad porcina, las compras recurrentes a México y la frontera compartida ofrecen una base comercial y una conexión terrestre. Un distribuidor especializado puede acercar la fórmula a granjas pequeñas y medianas con lechones.</p><p>La diferenciación combina un producto para una fase específica, un atributo sensorial y una presentación fácil de manejar.</p><p class="margin-note">La oportunidad se construye con precio de entrega, información técnica, servicio y capacidad de mantener el suministro.</p><a class="source-link" href="https://wits.worldbank.org/trade/comtrade/en/country/GTM/year/2024/tradeflow/Imports/partner/ALL/product/230990" target="_blank" rel="noopener noreferrer">Consultar datos de importación ↗</a></div>
+        <div class="chapter-visual market-art"><img class="market-flag" src="assets/bandera-guatemala.png" alt="Bandera guatemalteca en acuarela"><div class="market-stats"><div><strong>272 mil t</strong><span>de alimento porcino consumidas en 2024, aproximadamente.</span></div><div><strong>92,04 M USD</strong><span>importados en 2024 en preparaciones para alimentación animal.</span></div><div><strong>15,38 %</strong><span>participación de México en el valor importado de esa categoría.</span></div></div><p class="scope-note">La categoría comercial comprende distintas especies y etapas; no equivale únicamente a alimento para lechones. En 2024 creció el total importado, mientras bajaron las compras desde México.</p></div>
+      </section>
+
+      <section class="chapter" id="chapter-5" data-title="Ruta" hidden aria-labelledby="title-5">
+        <div class="chapter-copy"><p class="eyebrow">06 / UN VIAJE BIEN ORGANIZADO</p><h2 id="title-5" tabindex="-1">Una ruta.<br><em>Dos responsabilidades.</em></h2><p class="lead">Misantla, Veracruz → Tapachula, Chiapas → Guatemala.</p><p>La entrega propuesta es <strong>FCA en Tapachula</strong>. El punto preciso se identifica en el contrato. Desde allí, el comprador organiza la continuación del transporte hacia Guatemala.</p><div class="definition"><strong>¿Qué es un Incoterm?</strong><p>Una regla internacional que distribuye costos, riesgos y obligaciones entre vendedor y comprador.</p><span>FCA: Free Carrier / franco porteador · Incoterms® 2020.</span></div><div id="routeDetail" class="route-detail" aria-live="polite"><strong>1. Misantla, Veracruz</strong><p>La empresa prepara el pedido y organiza el traslado al lugar de entrega convenido en Tapachula.</p></div><a class="source-link" href="https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/" target="_blank" rel="noopener noreferrer">Conocer las reglas Incoterms ↗</a></div>
+        <div class="chapter-visual route-art"><div class="map-wrap"><img src="assets/mapa.svg" alt="Mapa geográficamente reconocible de México, Guatemala y países vecinos"><svg class="map-lines" viewBox="0 0 550 370" aria-hidden="true"><path class="seller-route" d="M378 241 Q394 285 456 326"/><path class="buyer-route" d="M456 326 Q470 323 486 331"/><circle cx="378" cy="241" r="6"/><circle cx="456" cy="326" r="8"/><circle cx="486" cy="331" r="6" class="buyer-pin"/><text x="210" y="178">México</text></svg><img class="route-truck" src="assets/camion.png" alt="" aria-hidden="true"></div><div class="route-stops"><button class="selected" data-route="0">Misantla<span>La empresa</span></button><span aria-hidden="true">→</span><button data-route="1">Tapachula<span>Entrega FCA</span></button><span aria-hidden="true">→</span><button data-route="2">Guatemala<span>El comprador</span></button></div><div class="map-legend"><span><i></i>Tramo de la empresa</span><span><i class="buyer"></i>Continuación del comprador</span></div><p class="art-footnote">Toca las paradas para conocer cada responsabilidad.</p></div>
+      </section>
+
+      <section class="chapter closing-chapter" id="chapter-6" data-title="Entrada" hidden aria-labelledby="title-6">
+        <div class="chapter-copy"><p class="eyebrow">07 / DEL PRODUCTO AL MERCADO</p><h2 id="title-6" tabindex="-1">Un primer paso<br><em>a la medida.</em></h2><p class="lead">La estrategia combina diferenciación sensorial y distribución local.</p><p>El primer pedido se plantea pequeño, sin exclusividad y compatible con la capacidad disponible. El distribuidor concentra pedidos y conecta con granjas; la aceptación, la recompra y el abastecimiento orientan la continuidad.</p><div class="channel"><div><img src="assets/taller.png" alt="Instalación de la empresa"><strong>La empresa</strong></div><img class="channel-arrow" src="assets/flecha.png" alt="hacia"><div><img src="assets/distribuidor.png" alt="Almacén distribuidor"><strong>Distribuidor</strong></div><img class="channel-arrow" src="assets/flecha.png" alt="hacia"><div><img src="assets/granja.png" alt="Granja con lechones"><strong>Granjas con lechones</strong></div></div><p class="margin-note">Una propuesta empresarial que une alimento, ciencia y comercio exterior.</p></div>
+        <div class="access-notebook"><h3>¿Qué permite llegar al mercado?</h3>
+          <details open><summary>Clasificar el producto</summary><p>La <strong>fracción arancelaria</strong> es el código que identifica la mercancía en aduana y permite conocer aranceles y requisitos. El proyecto propone en México <strong>2309.90.99</strong> y en Guatemala el inciso <strong>2309.90.90.00</strong>, según las características del alimento.</p></details>
+          <details><summary>Acreditar el origen</summary><p>La preferencia arancelaria de <strong>0 %</strong> está sujeta al cumplimiento del Tratado de Libre Comercio México–Centroamérica y de sus reglas de origen. Se documentan insumos, fabricación y prueba de origen.</p></details>
+          <details><summary>Preparar el acceso sanitario</summary><p>El expediente identifica el alimento, su composición completa, garantías, proceso, análisis y etiqueta. El operador guatemalteco gestiona el registro y los permisos aplicables ante el MAGA.</p></details>
+          <details><summary>Cuidar el pedido y la trazabilidad</summary><p>Ficha técnica, conservación, identificación de lotes, factura, lista de empaque y documentos del transporte conectan la fabricación con la entrega. La información del saco debe ser clara y congruente con el registro.</p></details>
+          <button class="paint-button paper" id="returnStudies"><span>Volver a los estudios</span><span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+    </div>
+    <div class="journey-controls"><button id="prevBtn" class="arrow-button" aria-label="Capítulo anterior"><img src="assets/flecha.png" alt="" class="reverse"></button><div><span id="chapterCount">01 / 07</span><p id="nextHint">El producto espera del otro lado.</p></div><button id="nextBtn" class="arrow-button next-arrow" aria-label="Capítulo siguiente"><img src="assets/flecha.png" alt=""></button></div>
+  </div>
+</main>
+<footer class="footer"><div class="footer-caption">Ángel de Jesús García Iñiguez <span>· Proyecto de exportación</span></div><div class="footer-logos"><img src="assets/logo-uv.png" alt="Universidad Veracruzana"><img src="assets/logo-secihti.png" alt="Secretaría de Ciencia, Humanidades, Tecnología e Innovación"><img src="assets/logo-especializacion.png" alt="Especialización en Administración del Comercio Exterior"></div><a href="fuentes.html" class="source-link">Fuentes y lecturas ↗</a></footer>
+<div class="pig-reaction" id="pigReaction" aria-live="polite"></div>
+<div class="transition-pig" id="transitionPig" aria-hidden="true"><img src="assets/cerdito-salto.png" alt=""></div>
+<dialog id="gameDialog" aria-label="Juego del cerdito a pantalla completa">
+<div class="game-playfield"><canvas id="gameCanvas" width="420" height="720" tabindex="0" aria-label="Toca, haz clic o pulsa espacio para impulsar al cerdito hacia arriba. Supera 100 cercas para ganar. El arrastre y las flechas no mueven al cerdito.">Tu navegador necesita admitir canvas para jugar.</canvas><div class="game-score"><span>Puntos <strong id="gamePoints">0</strong></span><span>Cercas <strong id="gameGates">0</strong> / 100</span><span>Récord <strong id="gameBest">0</strong></span></div><div class="game-boost" aria-hidden="true"><span id="gameBoostFill"></span></div><div class="game-overlay" id="gameOverlay"><img src="assets/cerdito-salto.png" alt="Cerdito saltando"><h2 id="gameOverlayTitle">¡Al potrero!</h2><p id="gameOverlayText">Toca para subir. Supera 100 cercas para ganar.</p><button id="gameStart" class="paint-button blue"><span>Empezar a jugar</span><span aria-hidden="true">→</span></button><span class="game-tip">Un toque = un impulso · Sucralosa: turbo de 4 s</span></div><p id="gameAnnouncement" class="game-announcement" aria-live="polite"></p></div><button class="game-exit" id="gameExit">Salir</button>
+</dialog>
+<audio id="pigAudio1" src="assets/cerdito-sonido-1.mp3" preload="auto"></audio>
+<audio id="pigAudio2" src="assets/cerdito-sonido-2.mp3" preload="auto"></audio>
+<audio id="pigAudio3" src="assets/cerdito-sonido-3.mp3" preload="auto"></audio>
+<audio id="pigAudio4" src="assets/cerdito-sonido-4.mp3" preload="auto"></audio>
+<noscript><p class="noscript">Activa JavaScript para seguir el recorrido interactivo. Las publicaciones están disponibles en <a href="fuentes.html">Fuentes y lecturas</a>.</p></noscript>
+</body></html>
+
