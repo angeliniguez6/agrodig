@@ -14,7 +14,7 @@
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   function updateHUD(){ $('gamePoints').textContent=score; $('gameGates').textContent=passed; $('gameBest').textContent=best; $('gameBoostFill').style.width=`${boost/4*100}%`; }
   function say(text){$('gameAnnouncement').textContent=text}
-  function overlay(title,text,button){$('gameOverlay').hidden=false;$('gameOverlayTitle').textContent=title;$('gameOverlayText').textContent=text;$('gameStart').querySelector('span').textContent=button;}
+  function overlay(title,text,button,intro=false){$('gameOverlay').classList.toggle('is-intro',intro);$('gameLearning').hidden=!intro;$('gameOverlay').hidden=false;$('gameOverlayTitle').textContent=title;$('gameOverlayText').textContent=text;$('gameStart').querySelector('span').textContent=button;}
   function reset(){elapsed=distance=score=boost=gateNumber=passed=0;lastGateCenter=330;gateZones=[];lastZone=-1;zoneRun=0;lastSound=-10;spawn=180;fences=[];foods=[];particles=[];Object.assign(pig,{x:W*.25,y:330,vy:-80});say('Recoge harina y busca los cristales azules.');updateHUD()}
   function start(){reset();state='playing';$('gameOverlay').hidden=true;window.pigSounds.play();canvas.focus({preventScroll:true});last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(frame)}
   function pause(){if(state!=='playing')return;state='paused';cancelAnimationFrame(raf);overlay('Un respiro.','Tu cerdito te espera. Continúa cuando quieras.','Continuar');say('Partida en pausa.');draw()}
@@ -60,10 +60,13 @@
   $('gameExit').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('close',()=>{state='ready';cancelAnimationFrame(raf);window.pigSounds.stop();$('homeBtn').click()});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});window.addEventListener('blur',()=>{if(dialog.open)pause()});
-  $('gameBtn').addEventListener('click',()=>{state='ready';overlay('¡Al potrero!', 'Toca para impulsarte hacia arriba. Cada toque cuenta: evita el suelo y las cercas. Supera 100 para ganar; el escenario acelera y los pasos se estrechan.','Empezar a jugar');dialog.showModal();resize();reset();draw()});
+  $('gameBtn').addEventListener('click',()=>{state='ready';overlay('¡Un bocado con sabor!', 'Recoge alimento y sucralosa: en esta dinámica activa un turbo como recurso de juego. Toca para subir y supera 100 cercas.','¡A jugar!',true);dialog.showModal();resize();reset();draw()});
   function resize(){const box=canvas.getBoundingClientRect();if(!box.width||!box.height)return;const old=W;W=Math.max(220,box.width/box.height*H);canvas.width=Math.round(W);canvas.height=H;if(old){pig.x*=W/old;fences.forEach(f=>f.x*=W/old);foods.forEach(f=>f.x*=W/old)}draw()}
   new ResizeObserver(()=>{if(dialog.open)resize()}).observe(canvas);
   reset();draw();
   if(location.hash.toLowerCase()==='#juego') $('gameBtn').click();
   window.addEventListener('hashchange',()=>{if(location.hash.toLowerCase()==='#juego'&&!dialog.open) $('gameBtn').click()});
 })();
+
+
+
