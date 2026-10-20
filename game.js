@@ -64,7 +64,5 @@
   function resize(){const box=canvas.getBoundingClientRect();if(!box.width||!box.height)return;const old=W;W=Math.max(220,box.width/box.height*H);canvas.width=Math.round(W);canvas.height=H;if(old){pig.x*=W/old;fences.forEach(f=>f.x*=W/old);foods.forEach(f=>f.x*=W/old)}draw()}
   new ResizeObserver(()=>{if(dialog.open)resize()}).observe(canvas);
   reset();draw();
+  if(location.hash.toLowerCase()==='#juego') $('gameBtn').click();
 })();
-
-
-
