@@ -65,4 +65,5 @@
   new ResizeObserver(()=>{if(dialog.open)resize()}).observe(canvas);
   reset();draw();
   if(location.hash.toLowerCase()==='#juego') $('gameBtn').click();
+  window.addEventListener('hashchange',()=>{if(location.hash.toLowerCase()==='#juego'&&!dialog.open) $('gameBtn').click()});
 })();
