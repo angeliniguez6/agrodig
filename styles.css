@@ -14,3 +14,26 @@ body>.corner{width:200px;opacity:.5}
 
 
 @media(max-width:768px){.chapter,.chapter-copy,.chapter-visual{min-width:0}.route-art{width:100%}#title-5 em{font-size:clamp(30px,8.6vw,40px);letter-spacing:-1.5px}}
+
+/* ODS chapter: official icons, original paper texture and editorial type. */
+.ods-shortcut{display:inline-block;margin:0 0 24px;font-size:14px}
+.ods-chapter{display:block}
+.ods-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:35px}
+.ods-intro h2{margin-bottom:15px}
+.ods-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+.ods-card{background:#ffffffaa;padding:24px 22px 26px;border-top:2px solid #a9c1c7;box-shadow:0 6px 20px #244f6509;animation:chapterIn .5s ease-out both}
+.ods-card:nth-child(2){animation-delay:.08s}.ods-card:nth-child(3){animation-delay:.16s}
+.ods-card-heading{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.ods-card-heading img{display:block;width:116px;height:116px;object-fit:contain;flex-shrink:0}
+.ods-card-heading .eyebrow{font-size:9px;letter-spacing:.8px;margin-bottom:10px}
+.ods-card h3{font:700 24px/1.25 var(--serif);color:var(--blue);margin:0}
+.ods-card>p{font-size:16px;line-height:1.65;margin:0 0 20px}
+.ods-card details{border-top:1px dashed #afc6be;border-bottom:1px dashed #afc6be;padding:14px 0;margin-bottom:20px}
+.ods-card summary{cursor:pointer;font-size:15px;font-weight:bold;color:var(--green)}
+.ods-card details p{font-size:15px;line-height:1.65;margin:12px 0 0}
+.ods-card .ods-target{font-size:14px;color:#526e78}
+.ods-card .source-link{font-size:12px;line-height:1.8}
+.ods-closing{display:flex;align-items:center;justify-content:center;gap:25px;max-width:820px;margin:30px auto 0;border-top:1px dashed #adc2c9;padding-top:15px}
+.ods-closing img{width:100px;flex-shrink:0}.ods-closing p{font-size:18px;line-height:1.6;color:var(--green)}
+@media(max-width:1100px) and (min-width:721px){.ods-cards{gap:15px}.ods-card{padding:20px 16px}.ods-card-heading{flex-direction:column;align-items:start}.ods-card h3 br{display:none}}
+@media(max-width:720px){.ods-intro{grid-template-columns:1fr;gap:5px;margin-bottom:25px}.ods-cards{grid-template-columns:1fr;gap:24px}.ods-card{padding:24px 22px}.ods-card-heading{gap:20px}.ods-card-heading img{width:120px;height:120px}.ods-card h3{font-size:25px}.ods-card .source-link{font-size:13px}.ods-closing{gap:15px}.ods-closing img{width:75px}.ods-closing p{font-size:16px}.ods-shortcut{max-width:100%;font-size:13px}}
