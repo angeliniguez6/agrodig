@@ -60,7 +60,7 @@
   $('gameExit').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('close',()=>{state='ready';cancelAnimationFrame(raf);window.pigSounds.stop();$('homeBtn').click()});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});window.addEventListener('blur',()=>{if(dialog.open)pause()});
-  $('gameBtn').addEventListener('click',()=>{state='ready';overlay('¡Un bocado con sabor!', 'Recoge alimento y sucralosa: en esta dinámica activa un turbo como recurso de juego. Toca para subir y supera 100 cercas.','¡A jugar!',true);dialog.showModal();resize();reset();draw()});
+  $('gameBtn').addEventListener('click',()=>{state='ready';overlay('¡Un bocado con sabor!', 'Ayúdalo a recoger alimento. Toca para subir, evita las cercas y supera 100 para ganar.','¡A jugar!',true);dialog.showModal();resize();reset();draw()});
   function resize(){const box=canvas.getBoundingClientRect();if(!box.width||!box.height)return;const old=W;W=Math.max(220,box.width/box.height*H);canvas.width=Math.round(W);canvas.height=H;if(old){pig.x*=W/old;fences.forEach(f=>f.x*=W/old);foods.forEach(f=>f.x*=W/old)}draw()}
   new ResizeObserver(()=>{if(dialog.open)resize()}).observe(canvas);
   reset();draw();
