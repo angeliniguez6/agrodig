@@ -8,8 +8,8 @@ const studies={
   jansen:{type:'ESTUDIO EXPERIMENTAL DE ALIMENTACIÓN',title:'Una respuesta de consumo al inicio del destete.',meta:['Jansen et al. · 2026','288 lechones · 48 corrales','Sucralosa: 150 mg/kg'],body:'El estudio comparó una dieta base con sucralosa, neotame y carbadox durante 28 días. La sucralosa aumentó el consumo en la primera fase, días 0–14. También se observaron indicadores favorables de estructura intestinal en el día 14.',chart:{title:'Consumo diario medio · primera fase · días 0–14',control:192,sucralose:207,max:240,unit:'g/día'},detail:'El crecimiento inicial mostró una tendencia (P = 0,093), al igual que la menor frecuencia de diarrea. El consumo fue menor entre los días 21–28 y no aumentó de forma significativa en el periodo completo.',meaning:'Refuerza el interés por el consumo temprano y muestra por qué conviene leer los resultados por fases.',url:'https://doi.org/10.1093/jas/skag005',label:'Leer Jansen et al. (2026)'}
 };
 let current=0, inJourney=false, sound=true, reactionTimer, navToken=0;
-const titles=['Origen','Producto','Sucralosa','Estudios','Guatemala','Ruta','Entrada'];
-const hints=['El producto espera del otro lado.','Descubre el ingrediente que hace la diferencia.','Sigamos la pista de los estudios.','La ciencia también dialoga con el mercado.','Ahora, acompaña el viaje del producto.','Del trayecto al primer pedido.','Llegaste al final. Puedes volver al inicio.'];
+const titles=['Origen','Producto','Sucralosa','Estudios','Guatemala','Ruta','Entrada','ODS'];
+const hints=['El producto espera del otro lado.','Descubre el ingrediente que hace la diferencia.','Sigamos la pista de los estudios.','La ciencia también dialoga con el mercado.','Ahora, acompaña el viaje del producto.','Del trayecto al primer pedido.','Conoce cómo se conecta con el desarrollo sostenible.','Llegaste al final. Puedes volver al inicio.'];
 const nav=$('#chapterButtons');
 titles.forEach((title,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML=`<span>${String(i+1).padStart(2,'0')}</span>${title}`;b.setAttribute('aria-label',`Ir al capítulo ${i+1}: ${title}`);b.addEventListener('click',()=>showChapter(i));nav.append(b)});
 function reducedMotion(){return window.matchMedia('(prefers-reduced-motion: reduce)').matches}
@@ -27,9 +27,9 @@ async function showChapter(index,{animate=true,focus=true}={}){
   $$('.chapter').forEach((ch,i)=>ch.hidden=i!==current);
   $$('#chapterButtons button').forEach((b,i)=>{b.classList.toggle('active',i===current);if(i===current)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});
   $('#progressFill').style.width=`${(index+1)/titles.length*100}%`;
-  $('#chapterCount').textContent=`${String(index+1).padStart(2,'0')} / 07`;
+  $('#chapterCount').textContent=`${String(index+1).padStart(2,'0')} / ${String(titles.length).padStart(2,'0')}`;
   $('#nextHint').textContent=hints[index];$('#prevBtn').disabled=index===0;
-  $('#nextBtn').setAttribute('aria-label',index===6?'Volver al inicio':'Capítulo siguiente');
+  $('#nextBtn').setAttribute('aria-label',index===titles.length-1?'Volver al inicio':'Capítulo siguiente');
   $('#chapterStage').classList.remove('is-changing');
   if(focus)$(`#title-${index}`).focus({preventScroll:true});
   window.scrollTo({top:0,behavior:'instant'});
@@ -38,7 +38,8 @@ async function showChapter(index,{animate=true,focus=true}={}){
 }
 function showHome(){++navToken;inJourney=false;$('#journey').hidden=true;$('#welcome').hidden=false;$('#chapterStage').classList.remove('is-changing');$('#welcomeTitle').setAttribute('tabindex','-1');$('#welcomeTitle').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});history.replaceState(null,'',location.pathname+location.search)}
 $('#exploreBtn').addEventListener('click',()=>showChapter(0));$('#homeBtn').addEventListener('click',showHome);
-$('#prevBtn').addEventListener('click',()=>showChapter(current-1));$('#nextBtn').addEventListener('click',()=>current===6?showHome():showChapter(current+1));
+$('#prevBtn').addEventListener('click',()=>showChapter(current-1));$('#nextBtn').addEventListener('click',()=>current===titles.length-1?showHome():showChapter(current+1));
+$('#odsLink').addEventListener('click',e=>{e.preventDefault();showChapter(titles.indexOf('ODS'))});
 $('#returnStudies').addEventListener('click',()=>showChapter(3));
 const pigAudioPool=[1,2,3,4].map(i=>$(`#pigAudio${i}`));
 let pigSoundIndex=0;
@@ -69,8 +70,8 @@ function renderStudy(key){
 $$('[data-paper]').forEach(b=>b.addEventListener('click',()=>{selectTab(b,'[data-paper]');renderStudy(b.dataset.paper)}));renderStudy('zhang');
 const routeDetails=[['1. Misantla, Veracruz','La empresa prepara el pedido y organiza el traslado al lugar de entrega convenido en Tapachula.'],['2. Tapachula, Chiapas · FCA','Se entrega al transportista designado por el comprador en el punto convenido. Ese punto y las condiciones de la entrega se precisan en el contrato.'],['3. Guatemala','El comprador organiza la continuación del transporte y la importación. El distribuidor acerca la fórmula a las granjas con lechones.']];
 $$('[data-route]').forEach(b=>b.addEventListener('click',()=>{$$('[data-route]').forEach(x=>x.classList.toggle('selected',x===b));const d=routeDetails[+b.dataset.route];$('#routeDetail').innerHTML=`<strong>${d[0]}</strong><p>${d[1]}</p>`}));
-document.addEventListener('keydown',e=>{if(!inJourney||$('#gameDialog').open||e.altKey||e.ctrlKey||e.metaKey||e.target.closest('button,a,input,textarea,summary,[role=tablist]'))return;if(e.key==='ArrowRight'&&current<6){e.preventDefault();showChapter(current+1)}if(e.key==='ArrowLeft'&&current>0){e.preventDefault();showChapter(current-1)}});
+document.addEventListener('keydown',e=>{if(!inJourney||$('#gameDialog').open||e.altKey||e.ctrlKey||e.metaKey||e.target.closest('button,a,input,textarea,summary,[role=tablist]'))return;if(e.key==='ArrowRight'&&current<titles.length-1){e.preventDefault();showChapter(current+1)}if(e.key==='ArrowLeft'&&current>0){e.preventDefault();showChapter(current-1)}});
 let swipe;
 $('#chapterStage').addEventListener('touchstart',e=>{if(e.target.closest('button,a,details,nav'))return;swipe={x:e.touches[0].clientX,y:e.touches[0].clientY}},{passive:true});
-$('#chapterStage').addEventListener('touchend',e=>{if(!swipe)return;const dx=e.changedTouches[0].clientX-swipe.x,dy=e.changedTouches[0].clientY-swipe.y;swipe=null;if(Math.abs(dx)>100&&Math.abs(dy)<55){if(dx<0&&current<6)showChapter(current+1);if(dx>0&&current>0)showChapter(current-1)}},{passive:true});
+$('#chapterStage').addEventListener('touchend',e=>{if(!swipe)return;const dx=e.changedTouches[0].clientX-swipe.x,dy=e.changedTouches[0].clientY-swipe.y;swipe=null;if(Math.abs(dx)>100&&Math.abs(dy)<55){if(dx<0&&current<titles.length-1)showChapter(current+1);if(dx>0&&current>0)showChapter(current-1)}},{passive:true});
 const hash=decodeURIComponent(location.hash.slice(1)).toLowerCase(),initial=titles.findIndex(x=>x.toLowerCase()===hash);if(initial>=0)showChapter(initial,{animate:false,focus:false});
