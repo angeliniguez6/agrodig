@@ -37,7 +37,7 @@ async function showChapter(index,{animate=true,focus=true}={}){
   const active=$$('#chapterButtons button')[index];active.scrollIntoView({block:'nearest',inline:'center',behavior:reducedMotion()?'auto':'smooth'});
 }
 function showHome(){++navToken;inJourney=false;$('#journey').hidden=true;$('#welcome').hidden=false;$('#chapterStage').classList.remove('is-changing');$('#welcomeTitle').setAttribute('tabindex','-1');$('#welcomeTitle').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});history.replaceState(null,'',location.pathname+location.search)}
-$('#exploreBtn').addEventListener('click',()=>showChapter(0));$('#homeBtn').addEventListener('click',showHome);
+$('#exploreBtn').addEventListener('click',()=>{location.href='proyecto.html'});$('#homeBtn').addEventListener('click',showHome);
 $('#prevBtn').addEventListener('click',()=>showChapter(current-1));$('#nextBtn').addEventListener('click',()=>current===titles.length-1?showHome():showChapter(current+1));
 $('#odsLink').addEventListener('click',e=>{e.preventDefault();showChapter(titles.indexOf('ODS'))});
 $('#returnStudies').addEventListener('click',()=>showChapter(3));
