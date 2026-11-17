@@ -30,3 +30,5 @@
 .certification.registry>.paper-cell:last-of-type{flex:1;min-height:120px;height:auto}.certification.registry textarea.paper-control{height:100px!important;min-height:100px!important;font-size:10px;line-height:1.4}.certificate-card .folio-example{margin-top:12px}.certificate-card .folio-example button{margin:4px}.top-block{align-items:stretch}
 
 .walk-nav{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:16px 0;padding:10px;background:#eff6f2;border-radius:10px}.walk-nav span{font-size:12px;color:#426351}.walk-nav button{padding:7px 9px}
+
+.case-banner select{max-width:100%;padding:10px;border:1px solid #cdd8ce;border-radius:8px;background:white;color:#224d3b;font:inherit}.example-label{font-size:12px;font-weight:600}.references-below{margin-top:28px}.references-below h2{font-size:19px;margin:0 0 15px}.references-below .exchange-reference{margin-top:0}
